@@ -4,14 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.foliveira.pacientes.meusfilmes.model.MoviesRepository
+import com.foliveira.pacientes.meusfilmes.model.IMoviesRepository
 import com.foliveira.pacientes.meusfilmes.model.modelos.Movie
 import com.foliveira.pacientes.meusfilmes.ui.modelos.MovieUI
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MoviesListViewModel(
-    private val moviesRepository: MoviesRepository
+    private val moviesRepository: IMoviesRepository
 ) : ViewModel() {
 
     private val _movies = MutableLiveData<List<MovieUI>>()

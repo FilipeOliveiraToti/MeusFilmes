@@ -5,6 +5,8 @@ import com.foliveira.pacientes.meusfilmes.model.local.MoviesLocalDataSource
 import com.foliveira.pacientes.meusfilmes.model.remote.MoviesRemoteDataSource
 import com.foliveira.pacientes.meusfilmes.model.MoviesRepository
 import com.foliveira.pacientes.meusfilmes.model.local.AppDatabase
+import com.foliveira.pacientes.meusfilmes.model.local.IMoviesLocalDataSource
+import com.foliveira.pacientes.meusfilmes.model.remote.IMoviesRemoteDataSource
 import com.foliveira.pacientes.meusfilmes.model.remote.MoviesApi
 import com.foliveira.pacientes.meusfilmes.model.remote.RetrofitConfig
 import com.foliveira.pacientes.meusfilmes.viewmodel.MoviesListViewModel
@@ -27,7 +29,7 @@ val appModule = module {
     factory<MoviesLocalDataSource> {
         MoviesLocalDataSource(get())
     }
-    singleOf(::MoviesRemoteDataSource) { bind<MoviesRemoteDataSource>() }
-    singleOf(::MoviesLocalDataSource) { bind<MoviesLocalDataSource>() }
+    singleOf(::MoviesRemoteDataSource) { bind<IMoviesRemoteDataSource>() }
+    singleOf(::MoviesLocalDataSource) { bind<IMoviesLocalDataSource>() }
     singleOf(::MoviesRepository) { bind<IMoviesRepository>() }
 }

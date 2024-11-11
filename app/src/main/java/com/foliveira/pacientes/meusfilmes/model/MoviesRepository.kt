@@ -1,14 +1,14 @@
 package com.foliveira.pacientes.meusfilmes.model
 
-import com.foliveira.pacientes.meusfilmes.model.local.MoviesLocalDataSource
+import com.foliveira.pacientes.meusfilmes.model.local.IMoviesLocalDataSource
 import com.foliveira.pacientes.meusfilmes.model.modelos.Movie
-import com.foliveira.pacientes.meusfilmes.model.remote.MoviesRemoteDataSource
+import com.foliveira.pacientes.meusfilmes.model.remote.IMoviesRemoteDataSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class MoviesRepository(
-    private val moviesRemoteDataSource: MoviesRemoteDataSource,
-    private val moviesLocalDataSource: MoviesLocalDataSource
+    private val moviesRemoteDataSource: IMoviesRemoteDataSource,
+    private val moviesLocalDataSource: IMoviesLocalDataSource
 ) : IMoviesRepository {
 
     override suspend fun getMovies(): Flow<List<Movie>> {
